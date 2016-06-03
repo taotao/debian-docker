@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  - matrix:
+    - ARCH=armhf DISTRO=wheezy
+    - ARCH=armhf DISTRO=jessie
+
+scripts:
+  - make ARCH=${ARCH} DISTRO=${DISTRO}
+  - docker images
