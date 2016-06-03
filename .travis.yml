@@ -10,6 +10,6 @@ env:
     - ARCH=armhf DISTRO=wheezy
     - ARCH=armhf DISTRO=jessie
 
-scripts:
+script:
   - make ARCH=${ARCH} DISTRO=${DISTRO}
   - docker images
