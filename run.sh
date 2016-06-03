@@ -6,6 +6,9 @@ BUILD_DIR=/root/${ARCH}_${DISTRO}
 
 DEB_URL="http://httpredir.debian.org/debian/"
 
+export DEBIAN_FRONTEND="noninteractive"
+export DEBCONF_NONINTERACTIVE_SEEN="true"
+
 apt-get update
 apt-get upgrade -y
 apt-get install -y \
@@ -17,8 +20,7 @@ service binfmt-support restart
 
 mkdir -p ${BUILD_DIR}
 
-DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
-	LC_ALL=C LANGUAGE=C LANG=C \
+LC_ALL=C LANGUAGE=C LANG=C \
 	debootstrap \
 	--variant=minbase \
 	--foreign \
@@ -27,12 +29,10 @@ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
 
 cp /usr/bin/qemu-*-static ${BUILD_DIR}/usr/bin
 
-DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
-	LC_ALL=C LANGUAGE=C LANG=C \
+LC_ALL=C LANGUAGE=C LANG=C \
 	chroot ${BUILD_DIR} /debootstrap/debootstrap --second-stage
 
-DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
-	LC_ALL=C LANGUAGE=C LANG=C \
+LC_ALL=C LANGUAGE=C LANG=C \
 	chroot ${BUILD_DIR} dpkg --configure -a
 
 echo "deb ${DEB_URL} ${DISTRO} main contrib non-free" > ${BUILD_DIR}/etc/apt/sources.list
