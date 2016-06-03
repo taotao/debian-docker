@@ -25,6 +25,7 @@ upload:
 		${REMOTE_IMAGE_NAME}
 	@docker login \
 		--username=${DOCKER_USER} \
+		--email=${DOCKER_EMAIL} \
 		--password=${DOCKER_PASSWORD}
 	docker push ${REMOTE_IMAGE_NAME}
 
