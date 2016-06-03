@@ -9,6 +9,18 @@ env:
   matrix:
     - ARCH=armhf DISTRO=wheezy
     - ARCH=armhf DISTRO=jessie
+    - ARCH=armhf DISTRO=stretch
+    - ARCH=amd64 DISTRO=wheezy
+    - ARCH=amd64 DISTRO=jessie
+    - ARCH=amd64 DISTRO=stretch
+    - ARCH=i386 DISTRO=wheezy
+    - ARCH=i386 DISTRO=jessie
+    - ARCH=i386 DISTRO=stretch
+    - ARCH=armel DISTRO=wheezy
+    - ARCH=armel DISTRO=jessie
+    - ARCH=armel DISTRO=stretch
+    - ARCH=arm64 DISTRO=jessie
+    - ARCH=arm64 DISTRO=stretch
 
 script:
   - make ARCH=${ARCH} DISTRO=${DISTRO}
