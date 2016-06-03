@@ -21,7 +21,6 @@ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
 	LC_ALL=C LANGUAGE=C LANG=C \
 	debootstrap \
 	--variant=minbase \
-	--include=inetutils-ping,iproute \
 	--foreign \
 	--arch ${ARCH} \
 	${DISTRO} ${BUILD_DIR} ${DEB_URL}
@@ -38,4 +37,4 @@ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
 
 echo "${DEB_URL} ${DISTRO} main contrib non-free" > ${BUILD_DIR}/etc/apt/sources.list
 
-tar -C ${BUILD_DIR} -c . | docker import - debian-${ARCH}-${DISTRO}-docker
+tar -C ${BUILD_DIR}  -f /root/build/image.tar -c .
