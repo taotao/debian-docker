@@ -1,4 +1,4 @@
-PROJ_NAME=debian-image-docker
+PROJ_NAME=debian-docker
 
 ARCH=armhf
 DISTRO=wheezy
@@ -14,7 +14,7 @@ build:
 		-v $(shell pwd):/root/build \
 		--privileged \
 		debian:${DISTRO} /root/build/run.sh ${ARCH} ${DISTRO}
-	cat image.tar | docker import - debian-${ARCH}-${DISTRO}-docker
+	cat image.tar | docker import - debian-docker:${ARCH}-${DISTRO}
 
 clean:
 	rm -rf image.tar
