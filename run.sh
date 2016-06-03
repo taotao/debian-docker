@@ -35,6 +35,6 @@ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
 	LC_ALL=C LANGUAGE=C LANG=C \
 	chroot ${BUILD_DIR} dpkg --configure -a
 
-echo "${DEB_URL} ${DISTRO} main contrib non-free" > ${BUILD_DIR}/etc/apt/sources.list
+echo "deb ${DEB_URL} ${DISTRO} main contrib non-free" > ${BUILD_DIR}/etc/apt/sources.list
 
 tar -C ${BUILD_DIR}  -f /root/build/image.tar -c .
