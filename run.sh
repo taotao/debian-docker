@@ -4,7 +4,7 @@ ARCH=$1
 DISTRO=$2
 BUILD_DIR=/root/${ARCH}_${DISTRO}
 
-DEB_URL="http://httpredir.debian.org/debian/"
+DEB_URL="http://deb.debian.org/debian/"
 
 export DEBIAN_FRONTEND="noninteractive"
 export DEBCONF_NONINTERACTIVE_SEEN="true"
