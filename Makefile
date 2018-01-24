@@ -27,6 +27,7 @@ upload:
 		--username=${DOCKER_USER} \
 		--password=${DOCKER_PASSWORD}
 	docker push ${REMOTE_IMAGE_NAME}
+	@docker logout
 
 clean:
 	rm -rf image.tar
