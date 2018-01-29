@@ -11,12 +11,12 @@ REMOTE_IMAGE_NAME=${DOCKER_USER}/${LOCAL_IMAGE_NAME}
 all: build
 
 build:
-	docker pull debian:${DISTRO}
+	docker pull debian:testing
 	docker run \
 		--rm \
 		-v $(shell pwd):/root/build \
 		--privileged \
-		debian:${DISTRO} /root/build/run.sh ${ARCH} ${DISTRO}
+		debian:testing /root/build/run.sh ${ARCH} ${DISTRO}
 	cat image.tar | docker import - ${LOCAL_IMAGE_NAME}
 
 upload:
