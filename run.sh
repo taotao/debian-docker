@@ -21,19 +21,10 @@ service binfmt-support restart
 mkdir -p ${BUILD_DIR}
 
 LC_ALL=C LANGUAGE=C LANG=C \
-	debootstrap \
+	qemu-debootstrap \
 	--variant=minbase \
-	--foreign \
 	--arch ${ARCH} \
 	${DISTRO} ${BUILD_DIR} ${DEB_URL}
-
-cp /usr/bin/qemu-*-static ${BUILD_DIR}/usr/bin
-
-LC_ALL=C LANGUAGE=C LANG=C \
-	chroot ${BUILD_DIR} /debootstrap/debootstrap --second-stage
-
-LC_ALL=C LANGUAGE=C LANG=C \
-	chroot ${BUILD_DIR} dpkg --configure -a
 
 echo "deb ${DEB_URL} ${DISTRO} main contrib non-free" > ${BUILD_DIR}/etc/apt/sources.list
 
