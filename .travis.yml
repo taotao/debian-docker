@@ -1,6 +1,5 @@
-sudo: required
-
-language: c
+language: minimal
+dist: xenial
 
 services:
   - docker
