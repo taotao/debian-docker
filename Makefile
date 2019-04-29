@@ -12,7 +12,7 @@ all: build
 
 build:
 	docker pull debian:testing
-	docker run \
+	sudo docker run \
 		--rm \
 		-v $(shell pwd):/root/build \
 		--privileged \
