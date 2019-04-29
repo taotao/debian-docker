@@ -18,14 +18,14 @@ apt-get install -y \
 
 service binfmt-support restart
 
-mkdir -p ${BUILD_DIR}
+mkdir -p "${BUILD_DIR}"
 
 LC_ALL=C LANGUAGE=C LANG=C \
 	qemu-debootstrap \
 	--variant=minbase \
-	--arch ${ARCH} \
-	${DISTRO} ${BUILD_DIR} ${DEB_URL}
+	--arch "${ARCH}" \
+	"${DISTRO}" "${BUILD_DIR}" "${DEB_URL}"
 
-echo "deb ${DEB_URL} ${DISTRO} main contrib non-free" > ${BUILD_DIR}/etc/apt/sources.list
+echo "deb ${DEB_URL} ${DISTRO} main contrib non-free" > "${BUILD_DIR}/etc/apt/sources.list"
 
-tar -C ${BUILD_DIR}  -f /root/build/image.tar -c .
+tar -C "${BUILD_DIR}"  -f /root/build/image.tar -c .
