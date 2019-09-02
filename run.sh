@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ARCHIVE_LIST=(wheezy)
+ARCHIVE_LIST=(wheezy jessie)
 
 ARCH=$1
 DISTRO=$2
