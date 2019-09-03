@@ -7,7 +7,7 @@ DISTRO=$2
 BUILD_DIR=/root/${ARCH}_${DISTRO}
 
 DEB_URL="http://deb.debian.org/debian/"
-DEB_SECURITY_URL="http://deb.debian.org/debian-security/"
+DEB_SECURITY_URL="http://security.debian.org/debian-security/"
 ARCHIVE_URL="http://archive.debian.org/debian/"
 ARCHIVE_SECURITY_URL="http://archive.debian.org/debian-security"
 
