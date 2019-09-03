@@ -39,6 +39,6 @@ LC_ALL=C LANGUAGE=C LANG=C \
 	"${DISTRO}" "${BUILD_DIR}" "${URL}"
 
 echo "deb ${URL} ${DISTRO} main contrib non-free" > "${BUILD_DIR}/etc/apt/sources.list"
-echo "deb ${SECURITY_URL} ${DISTRO} main contrib non-free" >> "${BUILD_DIR}/etc/apt/sources.list"
+echo "deb ${SECURITY_URL} ${DISTRO}/updates main contrib non-free" >> "${BUILD_DIR}/etc/apt/sources.list"
 
 tar -C "${BUILD_DIR}"  -f /root/build/image.tar -c .
